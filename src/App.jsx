@@ -86,6 +86,7 @@ function App() {
                     maxWidth: 400,
                     mx: "auto",
                     p: 3,
+                    m: 1,
                     borderRadius: 2,
                     boxShadow: 5,
                     backdropFilter: "blur(10px)",
