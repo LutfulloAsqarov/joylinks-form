@@ -59,10 +59,10 @@ function App() {
                 console.error("Xato yuz berdi:", error);
             } finally {
                 setFormData({
-                    firstName: "",
-                    lastName: "",
-                    phone: "",
-                    specialty: "",
+                    Ism: "",
+                    Familiya: "",
+                    Telefon: "",
+                    Mutaxasislik: "",
                 });
             }
         }
