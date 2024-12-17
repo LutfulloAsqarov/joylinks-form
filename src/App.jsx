@@ -191,7 +191,7 @@ function App() {
                         }}
                     />
                     <TextField
-                        label="Mutaxassislik"
+                        label="Mutaxasislik"
                         fullWidth
                         margin="normal"
                         value={formData.Mutaxasislik}
