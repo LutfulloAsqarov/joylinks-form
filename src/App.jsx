@@ -57,6 +57,13 @@ function App() {
                 const result = await response.json();
             } catch (error) {
                 console.error("Xato yuz berdi:", error);
+            } finally {
+                setFormData({
+                    firstName: "",
+                    lastName: "",
+                    phone: "",
+                    specialty: "",
+                });
             }
         }
     };
