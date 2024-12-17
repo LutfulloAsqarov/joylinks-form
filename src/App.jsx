@@ -105,14 +105,17 @@ function App() {
                     p: 3,
                     m: 1,
                     borderRadius: 2,
-                    boxShadow: 5,
-                    backdropFilter: "blur(10px)",
+                    boxShadow: 30,
+                    backdropFilter: "blur(20px)",
                     color: "#00d4c6",
                 }}
             >
                 <div className="logo">
-                    <img src={logo} alt="" />
+                    <img src={logo} alt="img" />
                 </div>
+                <Typography variant="h5" align="center" color="#fff" gutterBottom>
+                    Ishga qabul formasi
+                </Typography>
                 <form onSubmit={handleSubmit}>
                     <TextField
                         label="Ism"
