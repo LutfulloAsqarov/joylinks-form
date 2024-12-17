@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Box, TextField, Button, MenuItem, Typography } from "@mui/material";
+import {
+    Box,
+    TextField,
+    Button,
+    MenuItem,
+    Typography,
+    Dialog,
+    DialogContent,
+} from "@mui/material";
 import "react-phone-input-2/lib/style.css";
 import img from "./assets/bg.webp";
 import logo from "./assets/logo-white.svg";
@@ -16,6 +24,8 @@ function App() {
     });
 
     const [errors, setErrors] = useState({});
+    const [success, setSuccess] = useState("Yuborish");
+    const [openModal, setOpenModal] = useState(false); // State for modal visibility
 
     const validate = () => {
         let newErrors = {};
@@ -64,8 +74,15 @@ function App() {
                     Telefon: "",
                     Mutaxasislik: "",
                 });
+                setSuccess("Yuborildi");
+                setOpenModal(true); // Show the modal
             }
         }
+    };
+
+    const handleClose = () => {
+        setOpenModal(false); // Close the modal
+        setSuccess("Yuborish");
     };
 
     return (
@@ -93,11 +110,9 @@ function App() {
                     color: "#00d4c6",
                 }}
             >
-                {/* <Typography align="center"> */}
                 <div className="logo">
                     <img src={logo} alt="" />
                 </div>
-                {/* </Typography> */}
                 <form onSubmit={handleSubmit}>
                     <TextField
                         label="Ism"
@@ -108,25 +123,17 @@ function App() {
                         error={!!errors.Ism}
                         helperText={errors.Ism}
                         sx={{
-                            input: {
-                                color: "#fff", // Input matnining rangi oq
-                            },
-                            label: {
-                                color: "#fff", // Label (yorliq) rangi oq
-                            },
+                            input: { color: "#fff" },
+                            label: { color: "#fff" },
                             "& .MuiOutlinedInput-root": {
-                                "& fieldset": {
-                                    borderColor: "#fff", // Chekka chiziqning odatdagi rangi oq
-                                },
-                                "&:hover fieldset": {
-                                    borderColor: "#fff", // Hover paytidagi chiziqning rangi oq
-                                },
+                                "& fieldset": { borderColor: "#fff" },
+                                "&:hover fieldset": { borderColor: "#fff" },
                                 "&.Mui-focused fieldset": {
-                                    borderColor: "#fff", // Fokuslangan chiziqning rangi oq
+                                    borderColor: "#fff",
                                 },
                             },
                             "& .MuiInputLabel-root.Mui-focused": {
-                                color: "#fff", // Fokuslangan label rangi oq
+                                color: "#fff",
                             },
                         }}
                     />
@@ -141,25 +148,17 @@ function App() {
                         error={!!errors.Familiya}
                         helperText={errors.Familiya}
                         sx={{
-                            input: {
-                                color: "#fff", // Input matnining rangi oq
-                            },
-                            label: {
-                                color: "#fff", // Label (yorliq) rangi oq
-                            },
+                            input: { color: "#fff" },
+                            label: { color: "#fff" },
                             "& .MuiOutlinedInput-root": {
-                                "& fieldset": {
-                                    borderColor: "#fff", // Chekka chiziqning odatdagi rangi oq
-                                },
-                                "&:hover fieldset": {
-                                    borderColor: "#fff", // Hover paytidagi chiziqning rangi oq
-                                },
+                                "& fieldset": { borderColor: "#fff" },
+                                "&:hover fieldset": { borderColor: "#fff" },
                                 "&.Mui-focused fieldset": {
-                                    borderColor: "#fff", // Fokuslangan chiziqning rangi oq
+                                    borderColor: "#fff",
                                 },
                             },
                             "& .MuiInputLabel-root.Mui-focused": {
-                                color: "#fff", // Fokuslangan label rangi oq
+                                color: "#fff",
                             },
                         }}
                     />
@@ -177,25 +176,17 @@ function App() {
                         error={!!errors.Telefon}
                         helperText={errors.Telefon}
                         sx={{
-                            input: {
-                                color: "#fff", // Input matnining rangi oq
-                            },
-                            label: {
-                                color: "#fff", // Label (yorliq) rangi oq
-                            },
+                            input: { color: "#fff" },
+                            label: { color: "#fff" },
                             "& .MuiOutlinedInput-root": {
-                                "& fieldset": {
-                                    borderColor: "#fff", // Chekka chiziqning odatdagi rangi oq
-                                },
-                                "&:hover fieldset": {
-                                    borderColor: "#fff", // Hover paytidagi chiziqning rangi oq
-                                },
+                                "& fieldset": { borderColor: "#fff" },
+                                "&:hover fieldset": { borderColor: "#fff" },
                                 "&.Mui-focused fieldset": {
-                                    borderColor: "#fff", // Fokuslangan chiziqning rangi oq
+                                    borderColor: "#fff",
                                 },
                             },
                             "& .MuiInputLabel-root.Mui-focused": {
-                                color: "#fff", // Fokuslangan label rangi oq
+                                color: "#fff",
                             },
                         }}
                     />
@@ -210,39 +201,78 @@ function App() {
                         error={!!errors.Mutaxasislik}
                         helperText={errors.Mutaxasislik}
                         sx={{
-                            input: {
-                                color: "#fff", // Input matnining rangi oq
-                            },
-                            label: {
-                                color: "#fff", // Label (yorliq) rangi oq
-                            },
+                            input: { color: "#fff" },
+                            label: { color: "#fff" },
                             "& .MuiOutlinedInput-root": {
-                                "& fieldset": {
-                                    borderColor: "#fff", // Chekka chiziqning odatdagi rangi oq
-                                },
-                                "&:hover fieldset": {
-                                    borderColor: "#fff", // Hover paytidagi chiziqning rangi oq
-                                },
+                                "& fieldset": { borderColor: "#fff" },
+                                "&:hover fieldset": { borderColor: "#fff" },
                                 "&.Mui-focused fieldset": {
-                                    borderColor: "#fff", // Fokuslangan chiziqning rangi oq
+                                    borderColor: "#fff",
                                 },
                             },
                             "& .MuiInputLabel-root.Mui-focused": {
-                                color: "#fff", // Fokuslangan label rangi oq
+                                color: "#fff",
                             },
                         }}
                     />
-
                     <Button
                         type="submit"
                         variant="contained"
                         fullWidth
                         sx={{ mt: 2, bgcolor: "#00d4c6", color: "#fff" }}
                     >
-                        Yuborish
+                        {success}
                     </Button>
                 </form>
             </Box>
+
+            {/* Modal */}
+            <Dialog
+                open={openModal}
+                onClose={handleClose}
+                sx={{
+                    "& .MuiDialog-paper": {
+                        borderRadius: "16px", // Rounded corners
+                        padding: "20px", // Spacing inside the modal
+                        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)", // Subtle shadow
+                        backgroundColor: "#121212", // Dark background for modern feel
+                        width: "100%",
+                        maxWidth: "300px",
+                    },
+                }}
+            >
+                <DialogContent>
+                    <Typography
+                        variant="h6"
+                        align="center"
+                        sx={{
+                            color: "#00d4c6", // Highlighted text color
+                            fontWeight: "bold", // Bold text
+                            marginBottom: "20px", // Spacing below the text
+                        }}
+                    >
+                        Yuborildi!
+                    </Typography>
+                    <Button
+                        onClick={handleClose}
+                        variant="contained"
+                        sx={{
+                            bgcolor: "#00d4c6", // Primary button color
+                            color: "#fff", // Button text color
+                            fontWeight: "bold",
+                            textTransform: "none", // Remove uppercase transformation
+                            padding: "10px 20px", // More padding for a spacious look
+                            borderRadius: "8px", // Rounded button corners
+                            "&:hover": {
+                                bgcolor: "#00c2b5", // Slightly darker on hover
+                            },
+                        }}
+                        fullWidth
+                    >
+                        Yopish
+                    </Button>
+                </DialogContent>
+            </Dialog>
         </Box>
     );
 }
